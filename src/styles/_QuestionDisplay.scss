@@ -1,14 +1,13 @@
 body {
-  background: url(https://www.thenfp.org/wp-content/uploads/2016/12/chalkboard.jpg);
-  background-size: cover;
-  // height: 1000px;
+  background: url(http://www.cherishpr.com/wp-content/uploads/2016/10/1227568-blackboard-wallpaper.jpg);
+  background-size:  auto;
   position: relative;
 }
 
 .question-display-grid{
   display: grid;
-  // grid-template-columns: repeat(auto-fit, 400px);
-  grid-gap: 25px 5px;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 35px 0px;
   justify-content: space-around;
   grid-auto-flow: dense;
 }
