@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header';
+import QuestionDisplay from './QuestionDisplay';
+import Card from './Card';
+import './styles/main.scss';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      flashStudyData: []
+    };
+    
+  } 
+
+  componentDidMount = () => {
+    fetch('https://memoize-datasets.herokuapp.com/api/v1/flashStudyQuestions')
+      .then(response => response.json())
+      .then(flashStudyData => {
+        this.setState({
+          flashStudyData: flashStudyData.flashStudyQuestions
+        })
+      })
+      .catch(error => console.log(error));
+      
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
+        <QuestionDisplay flashStudyData={this.state.flashStudyData}/>
+        <Card />
       </div>
     );
   }
