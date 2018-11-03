@@ -1,0 +1,14 @@
+body {
+  background: url(https://www.thenfp.org/wp-content/uploads/2016/12/chalkboard.jpg);
+  background-size: cover;
+  // height: 1000px;
+  position: relative;
+}
+
+.question-display-grid{
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, 400px);
+  grid-gap: 25px 5px;
+  justify-content: space-around;
+  grid-auto-flow: dense;
+}
