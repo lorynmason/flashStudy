@@ -4,7 +4,7 @@
   height: 300px;
   width: 400px;
   background: url('https://images-na.ssl-images-amazon.com/images/I/71atJIqKIcL._SL1500_.jpg');
-  font-size: 2rem;
+  font-size: 1.7rem;
   background-position: 10% 10%;
   text-align: center;
   justify-content: center;
@@ -14,4 +14,11 @@
 .extended-card{
   height: 500px;
   width: 600px;
+  position: relative;
+  z-index: 10;
+  flex-direction: column;
+}
+
+li {
+  list-style-type: none;
 }
