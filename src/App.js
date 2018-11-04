@@ -36,8 +36,12 @@ class App extends Component {
       .catch(error => console.log(error));  
   }
 
-  checkAnswer = (select) => {
+  checkAnswer = (select, event) => {
     console.log('hi')
+    let poop = this.state.flashStudyData.find(question => {
+      return question.id === event.target
+    })
+    console.log(event.target.parentNode)
     if(select === 'poop') {
       console.log('correct')
     }
