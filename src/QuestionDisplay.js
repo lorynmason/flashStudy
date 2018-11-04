@@ -16,7 +16,10 @@ export default class QuestionDisplay extends Component {
       <section className="question-display-grid">
       {
         this.props.flashStudyData.map(card => {
-          return <Card key={card.id} card={card.question} />;
+          return <Card key={card.id} card={card.question} 
+          choices={card.answerChoices} 
+          checkAnswer={this.props.checkAnswer}
+          id={this.props.id}/>;
         })
       }
       </section>
