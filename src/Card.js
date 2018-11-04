@@ -32,9 +32,22 @@ export default class Card extends Component {
         correct: true
       })
     } else {
+      this.setCardToStorage(this.props.id)
       this.setState({
         correct: false
       })
+    }
+  }
+
+  setCardToStorage(id) {
+    var storeIds = [];
+    if (JSON.parse(localStorage.getItem("ids"))) {
+      storeIds = JSON.parse(localStorage.getItem("ids"))
+      storeIds.push(id)
+      localStorage.setItem('ids', JSON.stringify(storeIds));
+    } else {
+      storeIds.push(id);
+      localStorage.setItem('ids', JSON.stringify(storeIds));
     }
   }
 
