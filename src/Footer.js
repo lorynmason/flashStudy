@@ -10,7 +10,7 @@ export default class Footer extends Component  {
   render() {
     return(
       <footer>
-        <i class="fas fa-arrow-circle-up" title="Back to top" onClick={this.bringToTop}></i>
+        <i className="fas fa-arrow-circle-up" title="Back to top" onClick={this.bringToTop}></i>
       </footer>
     )
   }
