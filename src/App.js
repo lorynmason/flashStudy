@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import QuestionDisplay from './QuestionDisplay';
-import Card from './Card';
 import './styles/main.scss';
 import Footer from './Footer';
 
@@ -14,7 +13,6 @@ class App extends Component {
       correctAnswers: [],
       id: []
     };
-    
   } 
 
   componentDidMount = () => {
@@ -37,15 +35,6 @@ class App extends Component {
       .catch(error => console.log(error));  
   }
 
-  // checkAnswer = (select, event) => {
-  //   let poop = this.state.flashStudyData.find(question => {
-  //     return question.id === Card.id
-  //   })
-  //   if(select === poop) {
-  //     console.log('correct')
-  //   }
-  // }
-
   render() {
     return (
       <div className="App">
@@ -55,9 +44,6 @@ class App extends Component {
                           checkAnswer={this.checkAnswer}
                           id={this.state.id}
                           correctAnswer={this.state.correctAnswers}/>
-        {/* <Card flashStudyData={this.state.flashStudyData}
-              choices={this.state.answerChoices}
-              checkAnswers={this.checkAnswer}/> */}
         <Footer />
       </div>
     );
