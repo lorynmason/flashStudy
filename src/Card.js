@@ -67,7 +67,7 @@ export default class Card extends Component {
         <ul>
           {
             this.props.choices.map((choice, index) => {
-              return <li className='answer-choice-row' key={index}><input type="radio" name="answer" value={choice} key={index} onClick={this.selectAnswer}></input>{choice}</li>
+              return <li className='answer-choice-row' key={index}><input className="radios" type="radio" name="answer" value={choice} key={index} onClick={this.selectAnswer}></input>{choice}</li>
             })
           }
         </ul>
