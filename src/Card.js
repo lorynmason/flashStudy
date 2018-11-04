@@ -5,24 +5,51 @@ export default class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      extendedView: false
+      extendedView: false,
+      selectedAnswer: ''
     };
   }
 
-  expandCard=(e)=> {
-    this.setState ={
+  expandCard=()=> {
+    this.setState({
       extendedView: true
-    }
-    e.target.classList.add('extended-card')
+    })
+    document.querySelector('.all-cards').classList.add('extended-card')
+  }
+
+  selectAnswer = (e) => {
+    let select = e.target.value
+    this.setState({
+      selectedAnswer: select
+    })
     console.log(this.state)
   }
+
   render() {
-    return(
-      <div className="all-cards" onClick={this.expandCard}>
-      {
-       this.props.card
-      }
-      </div>
-    )
+    if(this.state.extendedView === true){ 
+      return(
+        <div className="all-cards extended-card"  id={this.props.id} onClick={this.expandCard}>
+        <p>{this.props.card}</p>
+        <ul>
+          {
+            this.props.choices.map((choice, index) => {
+              return <li className='answer-choice-row' key={index}><input type="radio" name="answer" value={choice} key={index} onClick={this.selectAnswer}></input>{choice}</li>
+            })
+          }
+        </ul>
+        <button className='enter-btn' onClick={this.props.checkAnswer(this.state.selectedAnswer)}>Enter</button>
+        </div>
+      )
+    }
+    if(this.state.extendedView === false){
+      return(
+        <div className="all-cards" onClick={this.expandCard}>
+        {
+          this.props.card
+        }
+        </div>
+      )
+    }
+   
   }
 }
