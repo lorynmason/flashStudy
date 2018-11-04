@@ -1,7 +1,7 @@
 .all-cards{
   display: flex;
   align-items: center;
-  height: 300px;
+  height: 270px;
   width: 400px;
   background: url('https://images-na.ssl-images-amazon.com/images/I/71atJIqKIcL._SL1500_.jpg');
   font-size: 1.7rem;
@@ -9,15 +9,17 @@
   text-align: center;
   justify-content: center;
   padding: 0px 10px;
+  overflow-wrap: break-word;
 }
 
 .extended-card{
-  height: 500px;
+  height: 400px;
   width: 600px;
   position: relative;
   z-index: 10;
   flex-direction: column;
-  grid-column: span 2;
+  grid-column: span 3;
+  justify-self: center;
 }
 
 li {

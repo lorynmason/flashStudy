@@ -2,10 +2,35 @@
   font-size: 6rem;
   font-family: 'Permanent Marker', cursive;
   color: whitesmoke;
-  text-shadow: 4px 4px 5px #000;
+  text-shadow: 4px 4px 5px #0b9d73, -4px 4px 5px #000,;
   text-align: center;
-  height: 50px;
+  height: 190px;
+  margin: 0 auto;
+  width: 100%;
+  background: #3a3a3a;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.restudy-btn{
+  width: 120px;
+  background: #0b9d73;
+  border: none;
+  padding: 7px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: -4px 4px 5px #000;
+  color: whitesmoke;
+  font-weight: bold;
+  outline: none;
+  &:hover{
+    cursor: pointer;
+    filter: brightness(150%);
+  }
+  i{
+    margin-right: 6px;
+  }
 }
