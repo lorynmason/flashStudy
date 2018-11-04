@@ -3,6 +3,7 @@ import Header from './Header';
 import QuestionDisplay from './QuestionDisplay';
 import Card from './Card';
 import './styles/main.scss';
+import Footer from './Footer';
 
 class App extends Component {
   constructor() {
@@ -36,16 +37,14 @@ class App extends Component {
       .catch(error => console.log(error));  
   }
 
-  checkAnswer = (select, event) => {
-    console.log('hi')
-    let poop = this.state.flashStudyData.find(question => {
-      return question.id === event.target
-    })
-    console.log(event.target.parentNode)
-    if(select === 'poop') {
-      console.log('correct')
-    }
-  }
+  // checkAnswer = (select, event) => {
+  //   let poop = this.state.flashStudyData.find(question => {
+  //     return question.id === Card.id
+  //   })
+  //   if(select === poop) {
+  //     console.log('correct')
+  //   }
+  // }
 
   render() {
     return (
@@ -54,10 +53,12 @@ class App extends Component {
         <QuestionDisplay flashStudyData={this.state.flashStudyData} 
                           choices={this.state.answerChoices}
                           checkAnswer={this.checkAnswer}
-                          id={this.state.id}/>
-        <Card flashStudyData={this.state.flashStudyData}
+                          id={this.state.id}
+                          correctAnswer={this.state.correctAnswers}/>
+        {/* <Card flashStudyData={this.state.flashStudyData}
               choices={this.state.answerChoices}
-              checkAnswers={this.checkAnswer}/>
+              checkAnswers={this.checkAnswer}/> */}
+        <Footer />
       </div>
     );
   }

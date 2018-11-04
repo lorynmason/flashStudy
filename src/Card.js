@@ -15,6 +15,7 @@ export default class Card extends Component {
       extendedView: true
     })
     e.target.classList.add('extended-card')
+    document.querySelector('.extended-card').scrollIntoView({block: "center"})
   }
 
   selectAnswer = (e) => {
@@ -22,13 +23,19 @@ export default class Card extends Component {
     this.setState({
       selectedAnswer: select
     })
-    console.log(this.state)
+  }
+
+  checkAnswer = (select, event) => {
+    console.log(this.props.correctAnswer[this.props.id -1])
+    if(select === this.props.correctAnswer[this.props.id -1]) {
+      console.log('correct')
+    }
   }
 
   render() {
     if(this.state.extendedView === true){ 
       return(
-        <div className="all-cards extended-card"  id={this.props.id}>
+        <div className="all-cards extended-card"  id={this.props.id} correctAnswer={this.props.correctAnswer}>
         <p>{this.props.card}</p>
         <ul>
           {
@@ -37,7 +44,7 @@ export default class Card extends Component {
             })
           }
         </ul>
-        <button className='enter-btn' onClick={event => this.props.checkAnswer(this.state.selectedAnswer, event)}>Enter</button>
+        <button className='enter-btn' onClick={event => this.checkAnswer(this.state.selectedAnswer, event)}>Enter</button>
         </div>
       )
     }
