@@ -1,0 +1,14 @@
+footer{
+  font-size: 60px;
+  position: fixed;
+  z-index: 3;
+  bottom: 10px;
+  right: 10px;
+  i{
+    color: #3a3a3a;
+    opacity: .8;
+    &:hover{
+      color: blue;
+    }
+  }
+}
