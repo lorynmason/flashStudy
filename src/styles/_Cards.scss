@@ -17,6 +17,7 @@
   position: relative;
   z-index: 10;
   flex-direction: column;
+  grid-column: span 2;
 }
 
 li {
