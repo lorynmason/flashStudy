@@ -6,7 +6,8 @@ export default class Card extends Component {
     super(props);
     this.state = {
       extendedView: false,
-      selectedAnswer: ''
+      selectedAnswer: '',
+      correct: null
     };
   }
 
@@ -26,16 +27,29 @@ export default class Card extends Component {
   }
 
   checkAnswer = (select, event) => {
-    console.log(this.props.correctAnswer[this.props.id -1])
     if(select === this.props.correctAnswer[this.props.id -1]) {
-      console.log('correct')
+      this.setState({
+        correct: true
+      })
+    } else {
+      this.setState({
+        correct: false
+      })
     }
   }
 
+  collapseCard = () => {
+    this.setState({
+      extendedView: false,
+      selectedAnswer: '',
+      correct: null
+    })
+  }
+
   render() {
-    if(this.state.extendedView === true){ 
+    if(this.state.extendedView === true && this.state.correct === null){ 
       return(
-        <div className="all-cards extended-card"  id={this.props.id} correctAnswer={this.props.correctAnswer}>
+        <div className="all-cards extended-card"  id={this.props.id}>
         <p>{this.props.card}</p>
         <ul>
           {
@@ -57,6 +71,24 @@ export default class Card extends Component {
         </div>
       )
     }
-   
+    if(this.state.extendedView === true && this.state.correct === true ) {
+      return(
+        <div className="all-cards extended-card"  id={this.props.id}>
+        <p>{this.props.card}</p>
+        <p>CORRECT!</p>
+        <button className='close-btn' onClick={this.collapseCard}>CLOSE</button>
+        </div>
+      )
+    }
+    if(this.state.extendedView === true && this.state.correct === false) {
+      return(
+        <div className="all-cards extended-card"  id={this.props.id}>
+        <p>{this.props.card}</p>
+        <p>INCORRECT :(</p>
+        <p>Question saved in restudy</p>
+        <button className='close-btn' onClick={this.collapseCard}>CLOSE</button>
+        </div>
+      )
+    }
   }
 }
