@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <header>
-      <h1 className="header">flashStudy</h1>
+      <h1 className="header">flashStudy<button className="restudy-btn" title="Click to see incorrect questions"><i className="fas fa-retweet"></i>ReStudy</button></h1>
     </header>
   );
 }
