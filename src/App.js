@@ -11,9 +11,28 @@ class App extends Component {
       flashStudyData: [],
       answerChoices: [],
       correctAnswers: [],
-      id: []
+      id: [],
+      ReStudy: false,
+      storedIds: []
     };
   } 
+
+  passReStudy = () => {
+    console.log(2)
+    var stored = JSON.parse(localStorage.getItem('ids'))
+    this.setState({
+      ReStudy: true,
+      storedIds: stored
+    })
+  }
+
+  // getFromStorage = () => {
+  //   console.log(3)
+  //   let stored = JSON.parse(localStorage.getItem('ids'))
+  //   this.setState({
+  //     storedIds: stored
+  //   })
+  // }
 
   componentDidMount = () => {
     fetch('https://memoize-datasets.herokuapp.com/api/v1/flashStudyQuestions')
@@ -38,8 +57,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <QuestionDisplay flashStudyData={this.state.flashStudyData} 
+        <Header passReStudy={this.passReStudy}/>
+        <QuestionDisplay  ReStudy={this.state.ReStudy}
+                          storedIds={this.state.storedIds}
+                          flashStudyData={this.state.flashStudyData} 
                           choices={this.state.answerChoices}
                           checkAnswer={this.checkAnswer}
                           id={this.state.id}
