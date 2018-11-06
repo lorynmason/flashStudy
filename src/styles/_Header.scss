@@ -30,28 +30,28 @@
   margin: 0 auto;
   width: 100%;
   background: rgb(41, 41, 41);
-  animation: pulse 1s;
-  animation-iteration-count: 4;
+  // animation: pulse 1s;
+  // animation-iteration-count: 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-@keyframes pulse {
-  0% {
-    color: #000
-  }
-  25% {
-    color: #0b9d73;
-  }
-  50% {
-    color: aquamarine;
-  }
-  100% {
-    color: whitesmoke;
-  }
-}
+// @keyframes pulse {
+//   0% {
+//     color: #000
+//   }
+//   25% {
+//     color: #0b9d73;
+//   }
+//   50% {
+//     color: aquamarine;
+//   }
+//   100% {
+//     color: whitesmoke;
+//   }
+// }
 
 .restudy-btn{
   @include btn()
