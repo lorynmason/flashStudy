@@ -2,13 +2,14 @@ footer{
   font-size: 60px;
   position: fixed;
   z-index: 3;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   i{
-    color: #3a3a3a;
+    color: #fff;
     opacity: .8;
+    text-shadow: 3px 3px 3px #0b9d73;
     &:hover{
-      color: blue;
+      color: rgb(41, 41, 41);
     }
   }
 }
