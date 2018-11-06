@@ -7,9 +7,11 @@ footer{
   i{
     color: #fff;
     opacity: .8;
-    text-shadow: 3px 3px 3px #0b9d73;
+    text-shadow: 1px 1px 2px #000,
+    -1px -1px 2px #000;
     &:hover{
-      color: rgb(41, 41, 41);
+      color: #0b9d73;
+      cursor: pointer;
     }
   }
 }

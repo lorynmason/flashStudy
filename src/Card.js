@@ -114,7 +114,7 @@ export default class Card extends Component {
         <div className="all-cards extended-card"  id={this.props.id}>
         <p>{this.props.card}</p>
         <p>INCORRECT :(</p>
-        <p>Question saved in restudy</p>
+        <p>Question saved in ReStudy</p>
         <button className='close-btn' onClick={this.collapseCard}>CLOSE</button>
         </div>
       )
