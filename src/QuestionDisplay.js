@@ -11,10 +11,7 @@ export default class QuestionDisplay extends Component {
   }
 
   render () {
-    if(this.props.ReStudy === true){
-      console.log(this.props.storedIds)
-      console.log(this.props.flashStudyData)
-     
+    if(this.props.ReStudy === true && this.props.storedIds){
       return (
         <main className="question-display"> 
         <section className="question-display-grid">
@@ -23,7 +20,7 @@ export default class QuestionDisplay extends Component {
             return this.props.flashStudyData.filter( question => {
               return question.id === num
             })
-          }).reduce((flat, next) => flat.concat(next), []).map(card => {
+          }).reduce((arr, question) => arr.concat(question), []).map(card => {
             return <Card key={card.id} 
             card={card.question} 
             choices={card.answerChoices} 
@@ -37,7 +34,18 @@ export default class QuestionDisplay extends Component {
         </main>
       )
     }
-   
+    if(this.props.ReStudy === true && !this.props.storedIds){
+      return (
+      <main className="question-display"> 
+      <section className="question-display-grid">
+        <div className="all-cards">
+          <h1>There's Nothing In Your ReStudy, Return to All Question by Clicking the 'View All' Button.</h1>
+        </div>
+      </section>
+      </main>
+      )
+    }
+
     return (
       <main className="question-display"> 
       <section className="question-display-grid">
