@@ -26,8 +26,18 @@ export default class Card extends Component {
     })
   }
 
-  checkAnswer = (select, event) => {
+  checkAnswer = (select) => {
+    let storeIds = JSON.parse(localStorage.getItem("ids"))
     if(select === this.props.correctAnswer[this.props.id -1]) {
+        if(storeIds && storeIds.includes(this.props.id)) {
+          let newStoredIDs = storeIds.filter( storedId => {
+            return storedId !== this.props.id
+          })
+          localStorage.removeItem("ids")
+          if(newStoredIDs.length>0) {
+            localStorage.setItem('ids', JSON.stringify(newStoredIDs))
+          }
+        }
       this.setState({
         correct: true
       })
@@ -43,8 +53,13 @@ export default class Card extends Component {
     var storeIds = [];
     if (JSON.parse(localStorage.getItem("ids"))) {
       storeIds = JSON.parse(localStorage.getItem("ids"))
-      storeIds.push(id)
-      localStorage.setItem('ids', JSON.stringify(storeIds));
+      if(!storeIds.includes(id)){
+        storeIds.push(id)
+        localStorage.setItem('ids', JSON.stringify(storeIds))
+        if(JSON.parse(localStorage.getItem("ids")).length < 1) {
+          localStorage.clear()
+        }
+      }
     } else {
       storeIds.push(id);
       localStorage.setItem('ids', JSON.stringify(storeIds));
@@ -58,6 +73,7 @@ export default class Card extends Component {
       correct: null
     })
   }
+
 
   render() {
     if(this.state.extendedView === true && this.state.correct === null){ 
