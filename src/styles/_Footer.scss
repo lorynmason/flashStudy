@@ -3,15 +3,30 @@ footer{
   position: fixed;
   z-index: 3;
   bottom: 20px;
-  right: 20px;
+  right: 15px;
   i{
     color: #fff;
     opacity: .8;
     text-shadow: 1px 1px 2px #000,
     -1px -1px 2px #000;
+    animation-duration: 3s;
+    animation-name: zoomup;
+    animation-iteration-count: 1;
+    animation-direction: both;
     &:hover{
       color: #0b9d73;
       cursor: pointer;
+    }
+  }
+  @keyframes zoomup {
+    from {
+      margin-top: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-top: 0%;
+      width: 100%;
     }
   }
 }

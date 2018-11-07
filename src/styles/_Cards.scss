@@ -82,3 +82,62 @@
   }
 }
 
+@media (max-width: 650px) {
+  @mixin btn () {
+    margin-top: -10px;
+  }
+
+  .enter-btn {
+    @include btn();
+  }
+
+  .close-btn {
+    @include btn();
+  }
+  .extended-card{
+    grid-column: span 1;
+    padding-top: 10px;
+    height: 320px;
+    min-width: 310px;
+    max-width: 400px;
+    &:hover{
+      height: 320px;
+      min-width: 310px;
+      max-width: 400px;
+    }
+    p {
+      padding: 0px 0px;
+      margin: 0px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .all-cards{
+    font-size: 1.5rem;
+    padding: 0px 10px;
+    height: 170px;
+    width: 310px;
+    &:hover{
+      height: 170px;
+      width: 310px;
+    }
+    margin: 0 auto;
+  }
+  .extended-card{
+    padding-top: 10px;
+    height: 320px;
+    min-width: 310px;
+    max-width: 400px;
+    &:hover{
+      height: 320px;
+      min-width: 310px;
+      max-width: 400px;
+    }
+
+    p {
+      padding: 0px 0px;
+      margin: 0px;
+    }
+  }
+}
