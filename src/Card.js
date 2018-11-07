@@ -75,7 +75,7 @@ export default class Card extends Component {
   
   collapseCard = () => {
     this.state.usedCards.push(this.props.id)
-    if(this.props.ReStudy === true && this.state.correct === true) {
+    if(this.props.ReStudy === true) {
       this.props.resetRender()
     }
     this.setState({
