@@ -1,3 +1,7 @@
+$accentColor1: #0b9d73;
+$accentColor2: whitesmoke;
+$accentColor3: #000;
+
 footer{
   font-size: 60px;
   position: fixed;
@@ -5,16 +9,16 @@ footer{
   bottom: 20px;
   right: 15px;
   i{
-    color: #fff;
+    color: $accentColor2;
     opacity: .8;
-    text-shadow: 1px 1px 2px #000,
-    -1px -1px 2px #000;
+    text-shadow: 1px 1px 2px $accentColor3,
+    -1px -1px 2px $accentColor3;
     animation-duration: 3s;
     animation-name: zoomup;
     animation-iteration-count: 1;
     animation-direction: both;
     &:hover{
-      color: #0b9d73;
+      color: $accentColor1;
       cursor: pointer;
     }
   }
