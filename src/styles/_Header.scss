@@ -1,13 +1,17 @@
+$accentColor1: #0b9d73;
+$accentColor2: whitesmoke;
+$accentColor3: #000;
+
 @mixin btn () {
   width: 120px;
-  background: #0b9d73;
+  background: $accentColor1;
   border: none;
   padding: 7px;
   font-size: 1rem;
   border-radius: 5px;
   margin-bottom: 20px;
-  box-shadow: -4px 4px 5px #000;
-  color: whitesmoke;
+  box-shadow: -4px 4px 5px $accentColor3;
+  color: $accentColor2;
   font-weight: bold;
   outline: none;
   margin: 0px 12px 27px 12px;
@@ -23,8 +27,8 @@
 .header {
   font-size: 6rem;
   font-family: 'Permanent Marker', cursive;
-  color: whitesmoke;
-  text-shadow: 4px 4px 6px #0b9d73, -5px 5px 7px #000,;
+  color: $accentColor2;
+  text-shadow: 4px 4px 6px $accentColor1, -5px 5px 7px $accentColor3;
   text-align: center;
   height: 210px;
   margin: 0 auto;
@@ -68,7 +72,7 @@
   transform: translateX(-50%)   translateY(-100%);
   background: rgba(26, 39, 59, 0.7);
   text-align: center;
-  color: #fff;
+  color: $accentColor2;
   padding:4px 2px;
   font-size: 1rem;
   width: 160px;
@@ -78,11 +82,11 @@
   padding: 10px 10px;
   z-index:5;
   opacity:0;
-  border: 1px solid #0b9d73;
+  border: 1px solid $accentColor1;
 }
 
 [tooltip]:hover::after,[tooltip]:hover::before {
-   opacity:1
+   opacity:1;
 }
 
 @media (max-width: 550px) {
@@ -94,6 +98,6 @@
 @media (max-width: 350px) {
   .header{
     font-size: 3rem;
-    width: 105%
+    width: 105%;
   }
 }
