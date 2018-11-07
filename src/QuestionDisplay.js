@@ -6,8 +6,15 @@ export default class QuestionDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      extendedView: false
+      extendedView: false,
+      render: false
     };
+  }
+
+  resetRender=()=>{
+    this.setState({
+      render: true
+    })
   }
 
   render () {
@@ -27,7 +34,11 @@ export default class QuestionDisplay extends Component {
             checkAnswer={this.props.checkAnswer}
             id={card.id}
             flashStudyData={this.props.flashStudyData}
-            correctAnswer={this.props.correctAnswer}/>;
+            correctAnswer={this.props.correctAnswer}
+            resetUsed={this.props.resetUsed}
+            toggleReset={this.props.toggleReset}
+            resetRender={this.resetRender}
+            ReStudy={this.props.ReStudy}/>;
           })
         }
         </section>
@@ -57,7 +68,11 @@ export default class QuestionDisplay extends Component {
           checkAnswer={this.props.checkAnswer}
           id={card.id}
           flashStudyData={this.props.flashStudyData}
-          correctAnswer={this.props.correctAnswer}/>;
+          correctAnswer={this.props.correctAnswer}
+          resetUsed={this.props.resetUsed}
+          toggleReset={this.props.toggleReset}
+          resetRender={this.resetRender}
+          ReStudy={this.props.ReStudy}/>;
         })
       }
       </section>

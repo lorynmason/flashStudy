@@ -7,37 +7,44 @@ export default class Card extends Component {
     this.state = {
       extendedView: false,
       selectedAnswer: '',
-      correct: null
+      correct: null,
+      usedCards: []
     };
   }
-
+  
   expandCard=(e)=> {
     this.setState({
       extendedView: true
     })
     e.target.classList.add('extended-card')
-    document.querySelector('.extended-card').scrollIntoView({block: "center"})
+    e.target.scrollIntoView({block: "center"})
+    if(this.props.resetUsed === true){
+      this.setState({
+        usedCards: []
+      })
+    }
+    this.props.toggleReset()
   }
-
+  
   selectAnswer = (e) => {
     let select = e.target.value
     this.setState({
       selectedAnswer: select
     })
   }
-
+  
   checkAnswer = (select) => {
     let storeIds = JSON.parse(localStorage.getItem("ids"))
     if(select === this.props.correctAnswer[this.props.id -1]) {
-        if(storeIds && storeIds.includes(this.props.id)) {
-          let newStoredIDs = storeIds.filter( storedId => {
-            return storedId !== this.props.id
-          })
-          localStorage.removeItem("ids")
-          if(newStoredIDs.length>0) {
-            localStorage.setItem('ids', JSON.stringify(newStoredIDs))
-          }
+      if(storeIds && storeIds.includes(this.props.id)) {
+        let newStoredIDs = storeIds.filter( storedId => {
+          return storedId !== this.props.id
+        })
+        localStorage.removeItem("ids")
+        if(newStoredIDs.length>0) {
+          localStorage.setItem('ids', JSON.stringify(newStoredIDs))
         }
+      }
       this.setState({
         correct: true
       })
@@ -48,7 +55,7 @@ export default class Card extends Component {
       })
     }
   }
-
+  
   setCardToStorage(id) {
     var storeIds = [];
     if (JSON.parse(localStorage.getItem("ids"))) {
@@ -65,8 +72,12 @@ export default class Card extends Component {
       localStorage.setItem('ids', JSON.stringify(storeIds));
     }
   }
-
+  
   collapseCard = () => {
+    this.state.usedCards.push(this.props.id)
+    if(this.props.ReStudy === true && this.state.correct === true) {
+      this.props.resetRender()
+    }
     this.setState({
       extendedView: false,
       selectedAnswer: '',
@@ -74,8 +85,12 @@ export default class Card extends Component {
     })
   }
 
-
   render() {
+    if(this.state.usedCards.includes(this.props.id) && this.props.resetUsed === false) {
+        return (
+          <div className='empty-div'></div>
+        )
+    }
     if(this.state.extendedView === true && this.state.correct === null){ 
       return(
         <div className="all-cards extended-card"  id={this.props.id}>

@@ -13,7 +13,8 @@ class App extends Component {
       correctAnswers: [],
       id: [],
       ReStudy: false,
-      storedIds: []
+      storedIds: [],
+      resetUsed: false
     };
   } 
 
@@ -21,13 +22,21 @@ class App extends Component {
     var stored = JSON.parse(localStorage.getItem('ids'))
     this.setState({
       ReStudy: true,
-      storedIds: stored
+      storedIds: stored,
+      resetUsed: true
     })
   }
 
   displayAll=()=>{
     this.setState({
-      ReStudy: false
+      ReStudy: false,
+      resetUsed: true
+    })
+  }
+
+  toggleReset=()=>{
+    this.setState({
+      resetUsed: false
     })
   }
 
@@ -60,9 +69,10 @@ class App extends Component {
                           storedIds={this.state.storedIds}
                           flashStudyData={this.state.flashStudyData} 
                           choices={this.state.answerChoices}
-                          checkAnswer={this.checkAnswer}
                           id={this.state.id}
-                          correctAnswer={this.state.correctAnswers}/>
+                          correctAnswer={this.state.correctAnswers}
+                          resetUsed={this.state.resetUsed}
+                          toggleReset={this.toggleReset}/>
         <Footer />
       </div>
     );

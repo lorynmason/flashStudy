@@ -9,7 +9,6 @@ export default class Header extends Component {
     this.props.displayAll()
   }
     
-
   render() {
     return (
       <header>
