@@ -2,13 +2,31 @@ footer{
   font-size: 60px;
   position: fixed;
   z-index: 3;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 15px;
   i{
-    color: #3a3a3a;
+    color: #fff;
     opacity: .8;
+    text-shadow: 1px 1px 2px #000,
+    -1px -1px 2px #000;
+    animation-duration: 3s;
+    animation-name: zoomup;
+    animation-iteration-count: 1;
+    animation-direction: both;
     &:hover{
-      color: blue;
+      color: #0b9d73;
+      cursor: pointer;
+    }
+  }
+  @keyframes zoomup {
+    from {
+      margin-top: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-top: 0%;
+      width: 100%;
     }
   }
 }

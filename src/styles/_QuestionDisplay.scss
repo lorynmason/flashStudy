@@ -1,18 +1,18 @@
 body {
-  background: url(http://www.cherishpr.com/wp-content/uploads/2016/10/1227568-blackboard-wallpaper.jpg);
-  background-size:  cover;
-  position: relative;
+  background: rgb(48, 73, 110);
 }
 
 .question-display-grid{
   width: 100%;
-  max-width: 1340px;
-  padding: 40px 15px 165px 15px;
+  max-width: 1400px;
+  padding: 60px 0 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 400px);
-  grid-gap: 30px 0;
+  grid-template-columns: repeat(auto-fit, 440px);
+  grid-gap: 15px 15px;
   justify-content: space-around;
   grid-auto-flow: dense;
   z-index: 1;
   margin: 0 auto;
 }
+
+
