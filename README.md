@@ -1,6 +1,6 @@
 # FlashStudy
 
-A React-based flashcard study aid application with multiple choice questions based of basic front-end wed developement principals.
+A React-based flashcard study aid application with multiple choice questions based of basic front-end wed development principals.
 
 ### Install/Setup Instructions
 
@@ -16,7 +16,7 @@ npm start
 ````
 ### Project Descriptions 
 
-FlashStudy is a flash card application, for studying basic front-end wed developement principals. Questions that are answered incorectly get saved to local storage, the user can access these saved questions by clicking on the 'ReStudy' button. Answered questions will dispapear from the page. If the user clicks the 'View All' button all the cards will is reapear on the page.
+FlashStudy is a flash card application, for studying basic front-end wed development principals. Questions that are answered incorectly get saved to local storage, the user can access these saved questions by clicking on the 'ReStudy' button. Answered questions will dispapear from the page. If the user clicks the 'View All' button all the cards will is reapear on the page.
 
 
 #### Technologies Used for this project
